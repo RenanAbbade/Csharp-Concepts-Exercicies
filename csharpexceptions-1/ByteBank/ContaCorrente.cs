@@ -1,13 +1,20 @@
-﻿// using _05_ByteBank;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace _07_ByteBank
+namespace ByteBank
 {
     public class ContaCorrente
     {
-        public Cliente Titular { get; set; }
+        public static double TaxaOperacao { get; private set; }
 
         public static int TotalDeContasCriadas { get; private set; }
 
+        public Cliente Titular { get; set; }
+
+        public int Numero { get; set; }
 
         private int _agencia;
         public int Agencia
@@ -18,7 +25,7 @@ namespace _07_ByteBank
             }
             set
             {
-                if(value <= 0)
+                if (value <= 0)
                 {
                     return;
                 }
@@ -26,10 +33,8 @@ namespace _07_ByteBank
                 _agencia = value;
             }
         }
-        public int Numero { get; set; }
-        
-        private double _saldo = 100;
 
+        private double _saldo = 100;
         public double Saldo
         {
             get
@@ -47,15 +52,15 @@ namespace _07_ByteBank
             }
         }
 
-
         public ContaCorrente(int agencia, int numero)
         {
             Agencia = agencia;
             Numero = numero;
 
+            TaxaOperacao = 30 / TotalDeContasCriadas;
+
             TotalDeContasCriadas++;
         }
-
 
         public bool Sacar(double valor)
         {
@@ -72,7 +77,6 @@ namespace _07_ByteBank
         {
             _saldo += valor;
         }
-
 
         public bool Transferir(double valor, ContaCorrente contaDestino)
         {
