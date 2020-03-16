@@ -46,3 +46,13 @@ A palavra reservada int é, na verdade, o tipo Int32;
 A palavra reservada double é, na verdade, o tipo Double;
 A sobrecarga String::IndexOf(string);
 A propriedade String::Length.
+
+Grupos de caracteres, como [0123456789];
+Intervalos de caracteres, como [0-9];
+Quantificadores: {4,5}, {4} e {?};
+O método estático Regex.IsMatch e Regex.Match;
+
+Todos os tipos derivam de Object;
+O método ToString;
+Como usar interpolações de string (string interpolation);
+Cast com a palavra reservada as;
