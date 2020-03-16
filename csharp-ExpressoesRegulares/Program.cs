@@ -15,8 +15,8 @@ namespace ByteBank.SistemaAgencia
             ///     
 
             string padrao = "[123456789][123456789][123456789][123456789][-][123456789][123456789][123456789][123456789][123456789]";
-            //Cada cadeia de caracteres entre colchetes representa uma possibilidade entre os numeros, para condizer com o texto de texte, 4 possibilidades antes do hifen e 5 depois
-            string textoDeTeste = "Meu número de telefone é 9748-28623";
+            //Cada cadeia de caracteres entre colchetes representa uma possibilidade entre os numeros, para condizer com o texto de teste, 4 possibilidades antes do hifen e 5 depois
+            string textoDeTeste = "Meu nÃºmero de telefone Ã© 9748-28623";
 
             Console.WriteLine(Regex.IsMatch(textoDeTeste, padrao));
 
