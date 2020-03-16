@@ -1,4 +1,4 @@
-ï»¿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +20,9 @@ namespace ByteBank.SistemaAgencia
             //Quantificador 
 
             string padraoNovo = "[0-9]{4}-?[0-9]{4,5}";//? = coringa no hifen
-            string textoDeTeste = "Meu nÃºmero de telefone Ã© 9748-28623";
+            string textoDeTeste = "Meu número de telefone é 9748-28623";
 
-            string textoDeTeste2 = "Meu nÃºmero de telefone fixo Ã© 3748-2862";
+            string textoDeTeste2 = "Meu número de telefone fixo é 3748-2862";
 
             //Console.WriteLine(Regex.IsMatch(textoDeTeste, padrao));
 

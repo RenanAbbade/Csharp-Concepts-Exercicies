@@ -14,9 +14,12 @@ namespace ByteBank.SistemaAgencia
         {
             ///     
 
-            string padrao = "[123456789][123456789][123456789][123456789][-][123456789][123456789][123456789][123456789][123456789]";
+            string padrao = "[0-9][[0-9][[0-9][[0-9][-][0-9][0-9][0-9][0-9][0-9]";
+            //[0-9] -> Caracteres de 0 a 9 -> Feito de acordo com os códigos da tabela ASCII
             //Cada cadeia de caracteres entre colchetes representa uma possibilidade entre os numeros, para condizer com o texto de texte, 4 possibilidades antes do hifen e 5 depois
             string textoDeTeste = "Meu número de telefone é 9748-28623";
+
+            string padraoNovo = "[0-9]{4}[-][0-9]{4}"; //quantificador {*}, relaciona as possibilidades do colchete como se estivesse multiplicando por ele
 
             Console.WriteLine(Regex.IsMatch(textoDeTeste, padrao));
 
