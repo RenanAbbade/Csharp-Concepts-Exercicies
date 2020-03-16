@@ -12,28 +12,35 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
-            ///     
+            ContaCorrente conta1 = new ContaCorrente(111,11111);
 
-            
-            //string padraoNovo = "[0-9]{4}-{0,1}[0-9]{4,5}"; //Caso de ter numeros de celular e numeros de telefone fixo
-            //celular = 9*** - *****  \ Tel. Fixo: ****-****
-            //Quantificador 
+            ContaCorrente conta2 = new ContaCorrente(222, 22222);
 
-            string padraoNovo = "[0-9]{4}-?[0-9]{4,5}";//? = coringa no hifen
-            string textoDeTeste = "Meu número de telefone é 9748-28623";
+            ContaCorrente conta3 = new ContaCorrente(333, 33333);
 
-            string textoDeTeste2 = "Meu número de telefone fixo é 3748-2862";
+            ListaDeContaCorrente ListaContas = new ListaDeContaCorrente();
 
-            //Console.WriteLine(Regex.IsMatch(textoDeTeste, padrao));
+            ListaContas.Adicionar(conta1);
 
-            Match resultado = Regex.Match(textoDeTeste, padraoNovo);
+            ListaContas.Adicionar(conta2);
 
-            Match resultado2 = Regex.Match(textoDeTeste2, padraoNovo);
+            ListaContas.Adicionar(conta3);
 
-            Console.WriteLine(resultado.Value);
+            string[] vetor = new string[5];
 
-            Console.WriteLine(resultado2.Value);
+            List<string> nomes = new List<string>();
 
+            for(int i = 0; i< 10;i++)
+            {
+                nomes.Add("Albes");
+            }
+
+            nomes.Add("Caio");
+
+            foreach (string name in nomes)
+            {
+                Console.WriteLine(name);
+            }
 
             Console.ReadLine();
 

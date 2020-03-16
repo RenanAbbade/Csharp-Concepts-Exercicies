@@ -56,3 +56,9 @@ Todos os tipos derivam de Object;
 O método ToString;
 Como usar interpolações de string (string interpolation);
 Cast com a palavra reservada as;
+
+intaxe de criação de variáveis de array;
+O valor padrão é utilizado em todas as posições de um array ao ser criado;
+A propriedade Length dos arrays;
+A sintaxe de inicialização de array new int[] { 5, 12, 64 };
+Na próxima aula vamos criar uma lista e abstrair esta preocupação com capacidade inicial ou índices de um array para o usuário desta classe. Bora lá
