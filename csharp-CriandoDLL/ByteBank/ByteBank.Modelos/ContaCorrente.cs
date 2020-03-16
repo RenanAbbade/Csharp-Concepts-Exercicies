@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ByteBank.Modelos
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ContaCorrente
     {
         private static int TaxaOperacao;
