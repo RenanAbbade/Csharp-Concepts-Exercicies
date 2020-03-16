@@ -36,3 +36,13 @@ using = basicamente um try/catch/ finally encapsulado, desde que o finally tenha
 •	O tipo TimeSpan;
 •	Conhecemos a biblioteca Humanizer.
 
+No C# e .NET strings são imutáveis;
+Podemos criar uma nova string, a partir da porção de outra, com o método Substring;
+
+Método IndexOf;
+Método estático IsNullOrEmpty;
+A palavra reservada string é, na verdade, o tipo String;
+A palavra reservada int é, na verdade, o tipo Int32;
+A palavra reservada double é, na verdade, o tipo Double;
+A sobrecarga String::IndexOf(string);
+A propriedade String::Length.
