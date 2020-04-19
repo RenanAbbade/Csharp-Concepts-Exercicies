@@ -27,6 +27,8 @@ namespace Calculo
                 }
                 numeros.Add(number);
 
+                
+
                 //<Para calculo da moda>
                 //Se o dicionario contiver o valor 
                 if (dictionary.ContainsKey(number))
@@ -45,14 +47,13 @@ namespace Calculo
 
             DesvioPadrao desvioPadrao = new DesvioPadrao(numeros, media);
 
-            Console.WriteLine("Mediana: "+CalculaMediana(numeros));
-
             //CalculaModa(numeros);
 
             //dictionary
             int c = 0;
             int valorMaior = 0;
             double moda = 0;
+            
             foreach(KeyValuePair<double, int> item in dictionary)
             {
                 if(c == 0)
@@ -69,7 +70,20 @@ namespace Calculo
             }
 
             Console.WriteLine("Moda: "+moda);
+            Console.WriteLine("Mediana: " + CalculaMediana(numeros));
+            Console.WriteLine("Media: " + media);
 
+            List<double> listaOrd = new List<double>()
+            {
+               2.25,2.55,2.55,2.55,2.75,2.75,2.95,2.95,2.95,2.95,3.15,3.15,3.15,3.15,3.15,3.35,3.35,3.35,3.35,3.35,3.35
+            };
+
+            listaOrd.Sort();
+            Console.WriteLine("");
+            foreach (double num in listaOrd)
+            {
+                Console.WriteLine(num);
+            }
         }
 
         public static double CalculoMedia(List<double> nums, int quantidadeNumeros)
@@ -89,7 +103,8 @@ namespace Calculo
 
             if(nums.Count % 2 != 0)
             {
-                return nums[nums.Count / 2];
+                int index = (int)nums.Count / 2;
+                return nums[index];
             }
             else
             {
