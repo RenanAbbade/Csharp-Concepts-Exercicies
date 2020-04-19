@@ -11,7 +11,9 @@ namespace Calculo
             Console.WriteLine("Cálculo dos desvios padrões dos conjuntos amostrais!");
 
             List<double> numeros = new List<double>();
-           
+
+            Dictionary<double, int> dictionary = new Dictionary<double, int>();
+
             bool insercao = true;
 
             while (insercao == true)
@@ -23,33 +25,50 @@ namespace Calculo
                     insercao = false;
                     break;
                 }
-                    
                 numeros.Add(number);
-             
+
+                //<Para calculo da moda>
+                //Se o dicionario contiver o valor 
+                if (dictionary.ContainsKey(number))
+                {
+                    dictionary[number]++;
+                }
+                else
+                {
+                    dictionary.Add(number, 1);
+                }
+                //</Para calculo da moda>
             }
 
-
+            //se o calculo for o desvio padrao
             double media = CalculoMedia(numeros, numeros.Count);
 
-            List<double> numerosDoDesvio = new List<double>();
+            DesvioPadrao desvioPadrao = new DesvioPadrao(numeros, media);
 
-            numerosDoDesvio.AddRange(CalculoDesvio(numeros, media));
+            Console.WriteLine("Mediana: "+CalculaMediana(numeros));
 
-            int QuantidadeNums = numeros.Count;
+            //CalculaModa(numeros);
 
-            numeros.Clear();
+            //dictionary
+            int c = 0;
+            int valorMaior = 0;
+            double moda = 0;
+            foreach(KeyValuePair<double, int> item in dictionary)
+            {
+                if(c == 0)
+                    valorMaior = item.Value;
 
-            double somaDesviosAo2 = DesviosAoQuadrado(numerosDoDesvio);
+                if (item.Value > valorMaior)
+                {
+                    valorMaior = item.Value;
+                    moda = item.Key;
+                }
+ 
+                Console.WriteLine("chave: {0}, valor: {1}", item.Key, item.Value);
+                c++;
+            }
 
-            double ResultadoParcial = somaDesviosAo2 / (QuantidadeNums - 1);
-
-            double ResultadoFinal = Math.Sqrt(ResultadoParcial);
-
-            Console.WriteLine("Resultado Média " + media);
-            Console.WriteLine("Soma desvios ao quadrado " + somaDesviosAo2);
-            Console.WriteLine(": " + ResultadoParcial +"/"+ (QuantidadeNums-1));
-            Console.WriteLine("Resultado Final " + ResultadoFinal);
-
+            Console.WriteLine("Moda: "+moda);
 
         }
 
@@ -64,29 +83,32 @@ namespace Calculo
             return soma / quantidadeNumeros;
         }
 
-
-        public static List<double> CalculoDesvio(List<double> nums, double media)
+        public static double CalculaMediana(List<double> nums)
         {
-            List<double> ListaDosDesvios = new List<double>();
+            nums.Sort();
 
-            foreach (double num in nums)
+            if(nums.Count % 2 != 0)
             {
-                ListaDosDesvios.Add(num - media);
+                return nums[nums.Count / 2];
             }
+            else
+            {
+                double num1 =  nums[(nums.Count-1) / 2];
+                double num2 =  nums[(nums.Count) / 2];
+                double mediana = (num1 + num2) / 2;
 
-            return ListaDosDesvios;
+                return mediana;
+            }
         }
 
-        public static double DesviosAoQuadrado(List<double> nums)
+        public static double CalculaModa(List<double> nums)
         {
-            double soma = 0;
-            foreach (double num in nums)
-            {
-                soma = soma + Math.Pow(num, 2);
-            }
+            var dicionarioDeArrays = nums.GroupBy(x => x).Where(g => g.Count() > 1)
+                 .Select(g => g.Key)
+                 .ToList();
 
-            return soma;
-
+            return 0;
         }
+
     }
 }
